@@ -1,18 +1,28 @@
 <?php get_header(); ?>
 
-<main class="site-main">
-  <?php get_template_part('template-parts/heros/hero-home'); ?>
+<main class="site-main site-main--home">
 
   <?php
-    // Home sections (you can use the same 'page_sections' field on Home)
-    martincc_render_sections('page_sections');
-
-    if (!function_exists('have_rows') || !have_rows('page_sections')) :
+  // Full-width hero (hero templates can use container internally if desired)
+  get_template_part('template-parts/heros/hero-home');
   ?>
-    <div class="container" style="padding:40px 0;">
-      <?php while (have_posts()) : the_post(); the_content(); endwhile; ?>
-    </div>
-  <?php endif; ?>
+
+  <?php
+  // Flexible sections (each section controls its own width)
+  if (function_exists('have_rows') && have_rows('page_sections')) :
+    martincc_render_sections('page_sections');
+  else :
+    // Full-width fallback wrapper with a contained inner
+    echo '<section class="section section--fallback" style="padding:40px 0;">';
+    echo '<div class="container">';
+    while (have_posts()) : the_post();
+      the_content();
+    endwhile;
+    echo '</div>';
+    echo '</section>';
+  endif;
+  ?>
+
 </main>
 
 <?php get_footer(); ?>
