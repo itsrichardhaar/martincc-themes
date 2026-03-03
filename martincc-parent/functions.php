@@ -1,0 +1,2 @@
+<?php
+// Parent theme functions.
