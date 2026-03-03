@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <main class="site-main">
-  <?php get_template_part('template-parts/layout/hero'); ?>
+  <?php get_template_part('template-parts/heros/hero-home'); ?>
 
   <?php
     // Home sections (you can use the same 'page_sections' field on Home)
