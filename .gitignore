@@ -7,3 +7,8 @@
 twentytwenty*
 genesis-block-theme
 index.php
+
+# Ignore default WP themes and theme index
+twentytwenty*
+genesis-block-theme
+index.php
