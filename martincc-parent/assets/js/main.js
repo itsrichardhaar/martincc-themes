@@ -1,0 +1,1 @@
+console.log('Martin CC theme loaded');
